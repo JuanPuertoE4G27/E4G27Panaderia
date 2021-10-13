@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Módulo Proveedores</title>
+<!-- CSS only -->
+
+<!-- Bootstrap uso internet -->
+<!--
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+<!--  Bootstrap uso JAR -->
+<link
+	href="/webjars/bootstrap/5.1.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"> </header><br>
+	
+	<h2>LISTA DE PROVEEDORES</h2>
+	
+	<div class="container mt=4">
+		<a th:href="@{/newProveedor}" class="btn btn-primary">
+		<i class="fas fa-plus-circle"></i> Nuevo</a><br><br>
+		<table class="table table-warning table-hover table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">NIT</th>
+					<th scope="col">NOMBRE</th>
+					<th scope="col">DIRECCIÓN</th>
+					<th scope="col">TELÉFONO</th>
+					<th scope="col">CIUDAD</th>
+					<th scope="col">ACCIÓN</th>
+					<th scope="col">ACCIÓN</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p:${proveedores}">
+					<td th:text="${p.NIT_Prov}"></td>
+					<td th:text="${p.Nombre_Prov}"></td>
+					<td th:text="${p.Direccion_Prov}"></td>
+					<td th:text="${p.Telefono_Prov}"></td>
+					<td th:text="${p.Ciudad_Prov}"></td>
+					<td>
+						<a th:href="@{/editarProveedor/}+${p.NIT_Prov}" class="btn btn-warning">
+						<i class="fas fa-edit"></i> Editar</a>
+					</td>
+					<td>
+						<a th:onclick="eliminarProveedor([[${p.NIT_Prov}]])" class="btn btn-danger">
+						<i class="fas fa-trash-alt"></i> Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="js/funciones.js"></script>
+	<script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
+</body>
+</html>

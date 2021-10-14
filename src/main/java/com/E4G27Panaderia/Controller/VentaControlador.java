@@ -13,33 +13,33 @@ import com.E4G27Panaderia.InterfacesServicios.IUsuarioService;
 import com.E4G27Panaderia.InterfacesServicios.IVentaService;
 import com.E4G27Panaderia.Modelo.Venta;
 
+@Controller
+@RequestMapping
 public class VentaControlador {
-	@Controller
-	@RequestMapping
-	public class VentasControlador {
 		
-		@Autowired
-		private IUsuarioService Uservice;
-		@Autowired
-		private IClienteService Cservice;
-		@Autowired
-		private IProductoService Pservice;
-		@Autowired
-		private IVentaService Vservice;
+	@Autowired
+	private IUsuarioService Uservice;
+	@Autowired
+	private IClienteService Cservice;
+	@Autowired
+	private IProductoService Pservice;
+	@Autowired
+	private IVentaService Vservice;
 		
-		@GetMapping("/listarVentas")
-		public String listaVenta(Model model) {
-			model.addAttribute("usuarios",Uservice.listarUsu());
-			model.addAttribute("clientes",Cservice.listarCli());
-			model.addAttribute("productos",Pservice.listarProd());
-			return "ventas";
-		}
+	@GetMapping("/listarVentas")
+	public String listaVenta(Model model)
+	{
+		model.addAttribute("usuarios",Uservice.listarUsu());
+		model.addAttribute("clientes",Cservice.listarCli());
+		model.addAttribute("productos",Pservice.listarProd());
+		return "ventas";
+	}
 		
-		@PostMapping("/saveVenta")
-		public String saveVenta (Venta v, Model model) {
-			Vservice.saveVenta(v);
-			return "redirect:/";
-		}
+	@PostMapping("/saveVenta")
+	public String saveVenta (Venta v, Model model)
+	{
+		Vservice.saveVenta(v);
+		return "redirect:/listarVentas";
 	}
 
 }

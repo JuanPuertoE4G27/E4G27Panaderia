@@ -34,7 +34,7 @@
 					<div class="col">
 						<select id="selectCliente" onchange="completarCliente()" class="form-select">
 							<option selected>--Seleccionar cliente--</option>
-  							<option th:each="c: ${clientes}" th:text="${c.Nombre_Cli}" th:value="${u.Cedula_Cli}"></option>
+  							<option th:each="c: ${clientes}" th:text="${c.Nombre_Cli}" th:value="${c.Cedula_Cli}"></option>
 						</select>
 					</div>
 					<div class="col">

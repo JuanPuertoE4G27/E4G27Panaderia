@@ -23,7 +23,7 @@ public class UsuarioControlador {
 	private IUsuarioService Uservice;
 	
 	@PostMapping("/logIn")
-	public String logIn(Usuario u)
+	public String logIn(Model model, Usuario u)
 	{
 		boolean valido = Uservice.logIn(u.getUsuario(), u.getClave_Usu());
 		if(valido)
@@ -32,12 +32,12 @@ public class UsuarioControlador {
 		}
 		else
 		{
-			return "redirect:?error=true";
+			return "redirect:/?error=true";
 		}
 		
 	}
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String Mostrar_index()
 	{
 		return "index";

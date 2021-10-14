@@ -1,3 +1,4 @@
+/**
 package com.E4G27Panaderia.Controller;
 
 import java.util.ArrayList;
@@ -34,4 +35,4 @@ public class CompraControlador {
 		return "vender";
 	}
 	
-}
+}**/

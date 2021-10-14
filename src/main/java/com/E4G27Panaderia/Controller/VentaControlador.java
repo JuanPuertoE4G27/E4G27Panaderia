@@ -32,7 +32,7 @@ public class VentaControlador {
 			model.addAttribute("usuarios",Uservice.listarUsu());
 			model.addAttribute("clientes",Cservice.listarCli());
 			model.addAttribute("productos",Pservice.listarProd());
-			return "";//html de venta
+			return "ventas";
 		}
 		
 		@PostMapping("/saveVenta")

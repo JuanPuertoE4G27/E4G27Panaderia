@@ -9,12 +9,58 @@
 </head>
 <body>
 	<header th:replace="plantilla/template :: header"> </header>
-	
-	
-	
+
+	<form th:action="@{/saveVenta}" method="post">
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Usuario</label>
+					</div>
+					<div class="col">
+						<select id="selectUsuario" onchange="completarUsuario()" class="form-select">
+							<option selected>--Seleccionar usuario--</option>
+  							<option th:each="u: ${usuarios}" th:text="${u.Nombre_Usu}" th:value="${u.Cedula_Usu}"></option>
+						</select>
+					</div>
+					<div class="col">
+						<input id="inputUsuario" type="text" class="form-control" name="Cedula_Usu_Vta" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Cliente</label>
+					</div>
+					<div class="col">
+						<select id="selectCliente" onchange="completarCliente()" class="form-select">
+							<option selected>--Seleccionar cliente--</option>
+  							<option th:each="c: ${clientes}" th:text="${c.Nombre_Cli}" th:value="${u.Cedula_Cli}"></option>
+						</select>
+					</div>
+					<div class="col">
+						<input id="inputCliente" type="text" class="form-control" name="Cedula_Cli_Vta" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Fecha y Hora</label>
+					</div>
+					<div class="col">
+						<input id="FechaActual" type="text" class="form-control" name="datos_Fecha" />
+					</div>
+					<div class="col">
+						<input id="HoraActual" type="text" class="form-control" name="datos_Hora" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
 	<!-- Pie de Página -->
 	<footer th:replace="plantilla/template :: footer"> </footer>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="js/funciones.js"></script>
 	<script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
 </body>
 </html>

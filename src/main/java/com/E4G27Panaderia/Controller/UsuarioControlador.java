@@ -25,7 +25,7 @@ public class UsuarioControlador {
 	@PostMapping("/logIn")
 	public String logIn(Model model, Usuario u)
 	{
-		boolean valido = Uservice.logIn(u.getUsuario(), u.getClave_Usu());
+		boolean valido = Uservice.logInUsu(u.getUsuario(), u.getClave_Usu());
 		if(valido)
 		{
 			return "redirect:/menu";

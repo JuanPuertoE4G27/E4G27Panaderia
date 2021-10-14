@@ -15,6 +15,12 @@ public class UsuarioService implements IUsuarioService {
 	
 	@Autowired
 	private IUsuario data;
+	
+	@Override
+	public boolean logInUsu(String u, String clave) {
+		Usuario usuario= data.findByUsuarioAndClave(u, clave);
+        return usuario!=null;
+	}
 
 	@Override
 	public List<Usuario> listarUsu()
@@ -44,10 +50,4 @@ public class UsuarioService implements IUsuarioService {
 		data.deleteById(id);
 	}
 
-	@Override
-	public boolean logIn(String u, String clave) {
-		Usuario usuario= data.findByUsuarioAndClave(u, clave);
-        return usuario!=null;
-	}
-	
 }

@@ -23,8 +23,8 @@
 					<th scope="col">DIRECCIÓN</th>
 					<th scope="col">TELÉFONO</th>
 					<th scope="col">CIUDAD</th>
-					<th scope="col">ACCIÓN</th>
-					<th scope="col">ACCIÓN</th>
+					<th scope="col">EDITAR</th>
+					<th scope="col">ELIMINAR</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,11 +36,11 @@
 					<td th:text="${p.Ciudad_Prov}"></td>
 					<td>
 						<a th:href="@{/editarProveedor/}+${p.NIT_Prov}" class="btn btn-warning">
-						<i class="fas fa-edit"></i> Editar</a>
+						<i class="fas fa-edit"></i></a>
 					</td>
 					<td>
 						<a th:onclick="eliminarProveedor([[${p.NIT_Prov}]])" class="btn btn-danger">
-						<i class="fas fa-trash-alt"></i> Eliminar</a>
+						<i class="fas fa-trash-alt"></i></a>
 					</td>
 				</tr>
 			</tbody>

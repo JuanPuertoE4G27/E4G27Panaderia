@@ -9,7 +9,6 @@ import com.E4G27Panaderia.Modelo.Usuario;
 @Repository
 public interface IUsuario extends CrudRepository<Usuario, Integer> {
 
-	@Query(value="select * from T_Usuarios where Usuario=:u and Clave_Usu=:clave", nativeQuery=true)
+	@Query(value="select * from T_Usuarios where Usuario= ?1 and Clave_Usu= ?2", nativeQuery=true)
 	public Usuario findByUsuarioAndClave_Usu(String u, String clave);
-	
 }

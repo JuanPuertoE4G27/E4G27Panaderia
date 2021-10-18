@@ -17,7 +17,8 @@ public class UsuarioService implements IUsuarioService {
 	private IUsuario data;
 	
 	@Override
-	public boolean logInUsu(String u, String clave) {
+	public boolean logInUsu(String u, String clave)
+	{
 		Usuario usuario= data.findByUsuarioAndClave_Usu(u, clave);
         return usuario!=null;
 	}

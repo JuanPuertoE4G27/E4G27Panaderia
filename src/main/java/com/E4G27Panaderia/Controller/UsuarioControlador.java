@@ -23,9 +23,9 @@ public class UsuarioControlador {
 	private IUsuarioService Uservice;
 	
 	@PostMapping("/logIn")
-	public String logIn(Model model, Usuario u)
+	public String logIn(Model model, Usuario user)
 	{
-		boolean valido = Uservice.logInUsu(u.getUsuario(), u.getClave_Usu());
+		boolean valido = Uservice.logInUsu(user.getUsuario(), user.getClave_Usu());
 		if(valido)
 		{
 			return "redirect:/menu";
@@ -37,7 +37,7 @@ public class UsuarioControlador {
 		
 	}
 	
-	@GetMapping("/")
+	@GetMapping({"/", "/index"})
 	public String Mostrar_index()
 	{
 		return "index";

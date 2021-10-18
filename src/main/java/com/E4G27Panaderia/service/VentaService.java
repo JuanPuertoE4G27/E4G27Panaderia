@@ -1,5 +1,7 @@
 package com.E4G27Panaderia.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,12 @@ public class VentaService implements IVentaService{
 		if(!venta.equals(null))
 			res=1;
 		return res;
+	}
+
+	@Override
+	public List<Venta> listarVentasClientes() 
+	{
+		return (List<Venta>)data.findAll();
 	}
 
 }

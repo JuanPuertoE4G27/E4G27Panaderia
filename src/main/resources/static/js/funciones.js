@@ -174,7 +174,7 @@ showDate()
 function showDate()
 {
 	var hoy = new Date();
-	var fecha = hoy.getDate() + " / " + (hoy.getMonth()+1) + " / " + hoy.getSeconds();
+	var fecha = hoy.getDate() + " / " + (hoy.getMonth()+1) + " / " + hoy.getFullYear();
 	document.getElementById("FechaActual").value = fecha;
 }
 

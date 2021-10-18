@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Módulo Reportes</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"> </header><br>
+	
+	<h2>REPORTES</h2><br>
+	
+	<div class="d-grid gap-2 col-3 mx-auto">
+  		<a class="btn btn-primary" th:href="@{/listarUsuarios}">
+  		<i class="fas fa-address-card"></i> Lista de Usuarios</a><br>
+  		<a class="btn btn-success" th:href="@{/listarClientes}">
+  		<i class="fas fa-address-book"></i> Lista de Clientes</a><br>
+  		<a class="btn btn-info" th:href="@{/listarReportes}">
+  		<i class="fas fa-file-invoice-dollar"></i> Ventas por Cliente</a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
+</body>
+</html>

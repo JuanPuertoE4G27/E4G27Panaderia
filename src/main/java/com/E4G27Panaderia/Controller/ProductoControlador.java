@@ -59,10 +59,4 @@ public class ProductoControlador {
 		return "redirect:/listarProductos";
 	}
 	
-	@GetMapping("/listarReportes")
-	public String reportes()
-	{
-		return "listaReportes";
-	}
-		
 }

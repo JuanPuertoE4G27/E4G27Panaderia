@@ -1,5 +1,7 @@
 package com.E4G27Panaderia.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +42,20 @@ public class VentaControlador {
 	{
 		Vservice.saveVenta(v);
 		return "redirect:/listarVentas";
+	}
+	
+	@GetMapping("/listarReportes")
+	public String listarReportes(Model model)
+	{
+		List<Venta> reportes = Vservice.listarVentasClientes();
+		model.addAttribute("reportes", reportes);
+		return "listaReportes";
+	}
+	
+	@GetMapping("/opcionesReportes")
+	public String opcionesReportes()
+	{
+		return "opcionesReportes";
 	}
 
 }
